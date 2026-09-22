@@ -4,7 +4,9 @@ import os
 
 app = Flask(__name__)
 
-DATABASE = "database/electricity.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(BASE_DIR, "database", "electricity.db")
+os.makedirs(os.path.dirname(DATABASE), exist_ok=True)
 
 
 def get_db():
